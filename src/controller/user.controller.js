@@ -1,0 +1,13 @@
+const service = require('../service/user.service');
+
+class UserController {
+  async create (ctx, next) {
+    // 获取用户传递的参数
+    const user =ctx.request.body;
+    // 查询参数
+    const result = await service.create(user);
+    ctx.body = result;
+  }
+}
+
+module.exports = new UserController();
